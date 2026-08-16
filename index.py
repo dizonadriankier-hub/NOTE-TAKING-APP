@@ -1,28 +1,54 @@
-print("Welcome to simple taking notes\n")
+print("Welcome to Simple Note Taking\n")
 
-notes_id = []
 notes = {}
+
 
 def add():
     note_id = int(input("Enter note ID: > "))
-    note = input("Enter notes: > ")
-    notes[note_id] = note
+    author = input("Enter author: > ")
+    note = input("Enter note: > ")
+
+    notes[note_id] = {
+        "author": author,
+        "note": note
+    }
+
+    print("Note Added!\n")
 
 
 def edit():
-    note_id = int(input("Enter note ID to edit: "))
-    new_note = input("Enter new note: ")
+    note_id = int(input("Enter note ID to edit: > "))
 
-    notes[note_id] = new_note
-    print("Note Edited!\n")
+    if note_id in notes:
+        new_note = input("Enter new note: > ")
+        notes[note_id]["note"] = new_note
+        new_author = input("Enter author's name: > ")
+        notes[note_id]["author"] = new_author
+        print("Note Edited!\n")
+    else:
+        print("Note ID not found!\n")
+
 
 while True:
-    choice = int(input("1: To enter notes 2: To Exit 3: View Notes 4: Edit Notes\n> "))
+    choice = int(input(
+        "1: Add Notes\n"
+        "2: Exit\n"
+        "3: View Notes\n"
+        "4: Edit Notes\n"
+        "> "
+    ))
+
     if choice == 1:
         add()
+
+    elif choice == 2:
+        break
+
     elif choice == 3:
         print(notes)
+
     elif choice == 4:
         edit()
+
     else:
-        break
+        print("Invalid choice!\n")
