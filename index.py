@@ -16,25 +16,13 @@ def add():
     print("Note Added!\n")
 
 
-def edit():
-    note_id = int(input("Enter note ID to edit: > "))
-
-    if note_id in notes:
-        new_note = input("Enter new note: > ")
-        notes[note_id]["note"] = new_note
-        new_author = input("Enter author's name: > ")
-        notes[note_id]["author"] = new_author
-        print("Note Edited!\n")
-    else:
-        print("Note ID not found!\n")
-
-
 while True:
     choice = int(input(
         "1: Add Notes\n"
         "2: Exit\n"
         "3: View Notes\n"
         "4: Edit Notes\n"
+        "5: Delete Notes\n"
         "> "
     ))
 
@@ -45,14 +33,13 @@ while True:
         break
 
     elif choice == 3:
-        for note_id, inner_dict in notes.items():
-            print(f"Note ID: {note_id}")
-
-            for key, value in inner_dict.items():
-                print(f"   {key.capitalize()}: {value}\n")
+        print("View feature will be added later.\n")
 
     elif choice == 4:
-        edit()
+        print("Edit feature will be added later.\n")
+
+    elif choice == 5:
+        print("Delete feature will be added later.\n")
 
     else:
         print("Invalid choice!\n")
