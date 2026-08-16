@@ -45,7 +45,11 @@ while True:
         break
 
     elif choice == 3:
-        print(notes)
+        for note_id, inner_dict in notes.items():
+            print(f"Note ID: {note_id}")
+
+            for key, value in inner_dict.items():
+                print(f"   {key.capitalize()}: {value}\n")
 
     elif choice == 4:
         edit()
